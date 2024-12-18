@@ -14,7 +14,7 @@ st.set_page_config(
     page_icon="💕"
 )
 
-llm = ChatOpenAI(model="gpt-3.5-turbo",temperature=0.1)
+llm = ChatOpenAI(temperature=0.1)
 # llm = ChatOpenAI(model="gpt-3.5-turbo",temperature=0)
 
 st.title("Document GPT")
