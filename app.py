@@ -13,8 +13,8 @@ st.set_page_config(
     page_title="Document GPT",
     page_icon="💕"
 )
-
-llm = ChatOpenAI()
+openai_api_key = st.secrets["OPEN_API_KEY"]
+llm = ChatOpenAI(openai_api_key=openai_api_key,model_name="gpt-3.5-turbo",temperature=0)
 # llm = ChatOpenAI(model="gpt-3.5-turbo",temperature=0)
 
 st.title("Document GPT")
