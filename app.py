@@ -15,7 +15,6 @@ st.set_page_config(
 )
 # openai_api_key = st.secrets["openai_api_key"]
 # llm = ChatOpenAI(openai_api_key=openai_api_key,model="gpt-3.5-turbo", temperature=0)
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
 # llm = ChatOpenAI(openai_api_key=openai_api_key,model_name="gpt-3.5-turbo",temperature=0)
 # llm = ChatOpenAI(model="gpt-3.5-turbo",temperature=0)
 
@@ -77,7 +76,12 @@ st.markdown("""
 
 
 with st.sidebar:
-    file = st.file_uploader('파일을 올려주세요',type=["pdf","docx","txt"])
+    
+    key = st.text_input('OPENAI_API_KEY를 입력하세요')
+    st.markdown(f"{key}")
+    if key:
+        llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+        file = st.file_uploader('파일을 올려주세요',type=["pdf","docx","txt"])
 
 if file:
     retriever = embed_file(file)
