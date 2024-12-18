@@ -78,6 +78,8 @@ st.markdown("""
 
 file=False
 with st.sidebar:
+
+    st.write("https://github.com/newmin/gpt_challenge/blob/main/app.py")
     
     key = st.text_input('OPENAI_API_KEY를 입력하세요')
     st.markdown(f"{key}")
