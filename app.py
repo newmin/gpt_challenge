@@ -8,6 +8,7 @@ from langchain.embeddings import CacheBackedEmbeddings
 from langchain.storage import LocalFileStore
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.runnable import RunnableLambda, RunnablePassthrough
+import os
 
 st.set_page_config(
     page_title="Document GPT",
@@ -28,6 +29,10 @@ if "message" not in st.session_state:
 def embed_file(file):
     file_content = file.read()
     file_path = f"./.cache/files/{file.name}"
+    
+    directory = os.path.dirname(file_path)
+    os.makedirs(directory, exist_ok=True)
+
     with open(file_path,"wb") as f:
         f.write(file_content)
 
