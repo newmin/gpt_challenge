@@ -10,6 +10,7 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.schema.runnable import RunnableLambda, RunnablePassthrough
 import os
 import nltk
+import pickle
 
 nltk.download('punkt')
 nltk.download('punkt_tab')
@@ -31,7 +32,7 @@ if "message" not in st.session_state:
     st.session_state["message"]=[]
 
 @st.cache_data(show_spinner=True)
-def embed_file(file):
+def embed_file_data(file):
     file_content = file.read()
     file_path = f"./.cache/files/{file.name}"
     
@@ -54,6 +55,12 @@ def embed_file(file):
         embeddings, cache_dir
     )
     vectorstore = FAISS.from_documents(docs, cached_embeddings)
+    retriever = vectorstore.as_retriever()
+    return pickle.dumps(vectorstore)
+
+def embed_file(file):
+    vectorstore_data = embed_file_data(file)
+    vectorstore = pickle.loads(vectorstore_data)
     retriever = vectorstore.as_retriever()
     return retriever
 
