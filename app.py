@@ -32,7 +32,8 @@ if "message" not in st.session_state:
     st.session_state["message"]=[]
 
 @st.cache_data(show_spinner=True)
-def embed_file_data(file):
+@st.cache_resource
+def embed_file(file):
     file_content = file.read()
     file_path = f"./.cache/files/{file.name}"
     
@@ -56,9 +57,10 @@ def embed_file_data(file):
     )
     vectorstore = FAISS.from_documents(docs, cached_embeddings)
     retriever = vectorstore.as_retriever()
-    return pickle.dumps(vectorstore)
+    # return pickle.dumps(vectorstore)
+    return retriever
 
-def embed_file(file):
+def embed_file2(file):
     vectorstore_data = embed_file_data(file)
     vectorstore = pickle.loads(vectorstore_data)
     retriever = vectorstore.as_retriever()
