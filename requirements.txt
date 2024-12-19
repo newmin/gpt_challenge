@@ -7,6 +7,7 @@ openai
 tiktoken
 unstructured
 nltk
+faiss-cpu
 pdfminer.six
 python-docx
 python-magic
