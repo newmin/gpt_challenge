@@ -9,6 +9,9 @@ from langchain.storage import LocalFileStore
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.runnable import RunnableLambda, RunnablePassthrough
 import os
+import nltk
+
+nltk.download('punkt')
 
 st.set_page_config(
     page_title="Document GPT",
