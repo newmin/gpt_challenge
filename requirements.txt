@@ -6,3 +6,7 @@ langchain_community
 openai
 tiktoken
 unstructured
+nltk
+pdfminer.six
+python-docx
+python-magic
