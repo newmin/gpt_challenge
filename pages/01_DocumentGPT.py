@@ -18,7 +18,7 @@ nltk.download('averaged_perceptron_tagger_eng')
 
 st.set_page_config(
     page_title="문서 발췌 AI",
-    page_icon="💕"
+    page_icon="🤓"
 )
 # openai_api_key = st.secrets["openai_api_key"]
 # llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
@@ -92,7 +92,7 @@ prompt = ChatPromptTemplate.from_messages(
 
 st.markdown("""
 첨부된 파일의 내용을 발췌하여 ChatGPT를 통해 내용을 문답할 수 있습니다.\n
-사이드바에서 본인의 OPENAI_API_KEY를 사용하실 수 있습니다.
+사이드바에서 본인의 OPENAI_API_KEY를 사용하실 수 있습니다.\n
 (※미입력하고 사용시, 사용요금이 청구될 수  있습니다.)
 """)
 
