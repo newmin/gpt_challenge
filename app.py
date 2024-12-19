@@ -13,6 +13,7 @@ import nltk
 
 nltk.download('punkt')
 nltk.download('punkt_tab')
+nltk.download('averaged_perceptron_tagger_eng')
 
 st.set_page_config(
     page_title="Document GPT",
