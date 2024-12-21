@@ -60,8 +60,8 @@ function = {
         "required": ["questions"],
     },
 }
+st.sidebar.write("https://github.com/newmin/gpt_challenge/blob/main/app.py")
 openai_api_key = st.sidebar.text_input("당신의 OPENAI API KEY를 입력하십시오")
-
 if openai_api_key:
     try:
         llm = ChatOpenAI(
