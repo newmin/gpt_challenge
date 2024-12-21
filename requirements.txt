@@ -11,3 +11,4 @@ faiss-cpu
 pdfminer.six
 python-docx
 python-magic
+WikipediaRetriever
